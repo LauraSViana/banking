@@ -1,0 +1,31 @@
+<div>
+  <h2>Cadastro de Cliente</h2>
+  <form (ngSubmit)="cadastrar()" #clienteForm="ngForm">
+    <div>
+      <label>Nome:</label>
+      <input [(ngModel)]="nome" name="nome" required />
+    </div>
+
+    <div>
+      <label>Idade:</label>
+      <input [(ngModel)]="idade" name="idade" type="number" required />
+    </div>
+
+    <div>
+      <label>Email:</label>
+      <input [(ngModel)]="email" name="email" required />
+    </div>
+
+    <button type="submit" [disabled]="!clienteForm.form.valid">
+      Cadastrar
+    </button>
+  </form>
+
+  <div *ngIf="clienteCadastrado">
+    <h3>Cliente Cadastrado:</h3>
+    <p>Nome: {{ clienteCadastrado.nome }}</p>
+    <p>Idade: {{ clienteCadastrado.idade }}</p>
+    <p>Email: {{ clienteCadastrado.email }}</p>
+    <p>Número da Conta: {{ clienteCadastrado.numeroConta }}</p>
+  </div>
+</div>
